@@ -9,7 +9,7 @@
 .form-control {
 	display: block;
 	height: 36px;
-	width: 100%; 
+	width: 100%;
 	border: none;
 	border-radius: 0 !important;
 	font-size: 16px;
@@ -57,7 +57,7 @@ label {
     font-size: 16px;
   }
 }
-  
+
 
 
 
@@ -75,21 +75,17 @@ label {
   font-size: 12px;
 }
 
-
 /* input colors ---- */
 // default
 .form-control:focus {
   ~ label {
     color: #03a9f4;
   }
-  
+
   ~ .form-bar:before, ~ .form-bar:after {
     background: #03a9f4;
   }
 }
-
-
-
 
 .form-control:valid ~ .control-label {
 
@@ -129,11 +125,11 @@ label {
   .form-inline .form-group {
     margin-top: 16px;
   }
-  
+
   .input-group-btn, .input-group .form-control, .input-group-addon, .form-inline .input-group {
     display: inline-block;
   }
-  
+
   .input-group {
     width: auto;
   }
@@ -202,7 +198,7 @@ label {
 
 /*-- Checkbox --------------------------- */
 // fork from http://codepen.io/jasonmayes/pen/wxtFr
-/* 
+/*
  * Core styles required for the checkboxes.
  * @author Jason Mayes 2014, www.jasonmayes.com
 */
@@ -267,9 +263,9 @@ label {
 
 // focus state
 .checkbox input[type='checkbox']:focus ~ label {
-  
+
   color: #03a9f4;
-  
+
   .chk-span {
     border-color: #03a9f4;
     &.checked {

@@ -81,7 +81,6 @@ h3 {
 }
 
 
-
 .map {
 	height: 240px;
 	margin-bottom: 30px;
@@ -89,7 +88,7 @@ h3 {
 
 #mapdesktop_container {
 	position: relative;
-	
+
 }
 
 #mapdesktop_container:after {
