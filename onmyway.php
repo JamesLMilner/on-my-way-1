@@ -95,8 +95,8 @@
     }
 
     function request($request_url, $request_parameters) {
-
         // Do a cURL POST Request; takes a URL and plain Array of name value pairs
+
         try {
             $curl = curl_init();
             // Set some options - we are passing in a useragent too here
@@ -136,8 +136,8 @@
     }
 
     function getReturnData($mode, $stops, $userName, $token){
-
         // All the logic responsible for getting the message and return object
+
         $routingUrl     = "http://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve";
         $routeWalkTime  = "";
         $routeDriveTime = "";
@@ -166,6 +166,7 @@
     }
 
     function getRouteData($stops, $token, $modeAttribute, $routingUrl, $userName, $mode) {
+        // Get the all the necessary data to return to the client
 
         $routeParameters = setRouteParameters($stops, $token, $modeAttribute);
         $route           = request($routingUrl, $routeParameters);
@@ -183,8 +184,8 @@
     }
 
     function setRouteParameters($stops, $token, $modeAttribute){
-
         // Setup the route parameters for the routing API
+
         return array(
             "stops"                       => $stops,
             "token"                       => $token,
@@ -192,11 +193,11 @@
             "f"                           => "json"
         );
 
-    } 
+    }
 
     function convertToHours($minutes) {
-
         // Convert minutes into hours and minutes
+
         $hours = floor($minutes / 60);
         $mins = floor($minutes % 60);
         if ($hours == 0) {
@@ -208,27 +209,29 @@
 
     }
 
-		function formatDistance($distance){
-			
-			// Format the distance by rounding and dealing with sub 1 mile results
-			if ($distance < 1){
-				
-				return "less than 1 mile away.";
-				
-			} else {
-				
-				return (string)round($distance, 0, PHP_ROUND_HALF_UP) . " miles away.";
-				
-			}
+	function formatDistance($distance){
+        // Format the distance by rounding and dealing with sub 1 mile results
+
+		if ($distance < 1){
+
+			return "less than 1 mile away.";
+
+		} else {
+
+			return (string)round($distance, 0, PHP_ROUND_HALF_UP) . " miles away.";
+
 		}
+	}
 
     function setMessageText($userName, $routeLength, $routeTime, $mode) {
+        // Return the message string to be sent to the friend
 
         return "Your friend $userName is on their way! They are " . $mode . " and are currently " . formatDistance($routeLength) .
                " They will be with you in about " . convertToHours($routeTime);
 
     }
 
+    //Trigger off the main function
     echo getData();
 
 ?>
